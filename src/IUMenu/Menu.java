@@ -10,8 +10,6 @@ public class Menu {
 
         int option=7;
         Scanner scanner = new Scanner(System.in);
-
-
         do{
             System.out.println("Bienvenido digite una opcion");
             System.out.println();
@@ -38,7 +36,6 @@ public class Menu {
                 System.out.println("****************************");
                 System.out.println("Seleccione una opcion valida");
                 System.out.println("****************************");
-                scanner.reset();
                 showMenu();
             }
 

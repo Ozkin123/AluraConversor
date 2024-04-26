@@ -5,7 +5,8 @@ import static IUMenu.Menu.*;
 public class Main {
     public static void main(String[] args) {
 
-         showMenu();
+         HttpConection httpConection = new HttpConection();
+         httpConection.createRequest("USD","EUR",1000.0000000);
 
 
 
