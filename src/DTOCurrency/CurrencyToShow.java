@@ -26,7 +26,7 @@ public class CurrencyToShow implements Comparable<CurrencyToShow>{
 
     @Override
     public String toString() {
-        return "Valor "+result;
+        return "Su cantidad en la divisa es = "+result;
     }
 
     @Override

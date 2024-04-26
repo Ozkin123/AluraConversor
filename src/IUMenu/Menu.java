@@ -1,16 +1,18 @@
 package IUMenu;
 
-import com.sun.tools.javac.Main;
+import static ConectionApi.HttpConection.*;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
 
     public static void showMenu(){
 
-        int option=7;
-        Scanner scanner = new Scanner(System.in);
+        int option=0;
+
         do{
+            Scanner scanner = new Scanner(System.in);
             System.out.println("Bienvenido digite una opcion");
             System.out.println();
             System.out.println("*****************************");
@@ -38,10 +40,45 @@ public class Menu {
                 System.out.println("****************************");
                 showMenu();
             }
+            double value=quantitySelectedUSer();
+            switch (option){
 
+                case 1:
+                    createRequest("USD","EUR",value);
+                    break;
+                case 2:
+                    createRequest("EUR","USD",value);
+                    break;
+                case 3:
+                    createRequest("COP","USD",value);
+                    break;
+                case 4:
+                    createRequest("COP","EUR",value);
+                    break;
+                case 5:
+                    createRequest("EUR","COP",value);
+                    break;
+                case 6:
+                    createRequest("USD","COP",value);
+                    break;
+            }
 
         }while (option!=7);
 
+    }
+
+    public static double quantitySelectedUSer(){
+        Scanner scanner2 = new Scanner(System.in);
+        double quantity =0;
+        System.out.println("Digite cantidad a convertir");
+        try {
+            quantity = scanner2.nextDouble();
+        }catch (InputMismatchException e){
+            System.out.println("Digite un numero");
+            scanner2.nextLine();
+        }
+
+        return quantity;
     }
 
 }

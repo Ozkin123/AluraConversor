@@ -15,7 +15,7 @@ import java.text.DecimalFormat;
 public class HttpConection {
 
 
-    public void createRequest(String baseCurrency,String targetCurrency, double value){
+    public static void createRequest(String baseCurrency,String targetCurrency, double value){
 
         DecimalFormat decimalFormat = new DecimalFormat("####.####");
         String endPoint = "https://v6.exchangerate-api.com/v6/acf25c06e7032df2e19b163b/pair/"+baseCurrency+"/"+targetCurrency+"/"+decimalFormat.format(value);
@@ -32,7 +32,6 @@ public class HttpConection {
                     .send(request, HttpResponse.BodyHandlers.ofString());
 
             String json = response.body();
-            System.out.println(json);
 
              Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
 
